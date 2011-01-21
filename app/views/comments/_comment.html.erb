@@ -1,0 +1,57 @@
+<div class="comment">
+    <div class="user">
+        <div class="image">
+            <% if comment.user.image.nil? %>
+                <img src="<%= "/images/User-icon_large.png" %>" height="60" width="60">
+            <% else %>
+                <img src="<%= "/images/#{comment.user.image}" %>" height="60" width="60">
+            <% end %>
+        </div>
+        <div class="name">
+            <%= "#{comment.user.first_name} #{comment.user.last_name}" %>
+        </div>
+    </div>
+    <div class="info">
+        <div class="date">
+            <%= "Posted #{calc_time(comment.created_at)}" %>
+        </div>
+        <% unless comment.parent.nil? %>
+            <div class="quote">
+                <%= "Quote:" %>
+                <div class="quoteBody">
+                    <%= "\"#{comment.parent.body}\"" %>
+                </div>
+            </div>
+        <% end %>
+        <div class="body">
+            <%= comment.body %>
+        </div>
+        <div class="buttons">
+            <%= image_tag("/images/reply-button.jpg", :border=>0, :alt => "Reply", :class => "reply_button_for_#{comment.id}") %>
+            <%= link_to image_tag("/images/Edit-icon_small.png", :border=>0, :alt => "Edit"), edit_comment_path(comment) %>
+            <%= link_to image_tag("/images/Delete-icon_small.png", :border=>0, :alt => "Delete"),
+#                        comment, //TODO: for some reason this is not working so I'm hardcoding the full url instead
+                        "/comments/destroy/#{comment.id}",
+                        :confirm => 'Are you sure?',
+                        :method => :delete,
+                        :remote => true %>
+        </div>
+        <%= form_for(@comment_thread.comments.new(:parent_id => comment.id),
+                     :remote => true,
+                     :html => {:id => "reply_for_#{comment.id}", :style => 'display: none;'}) do |f| %>
+            <div class="field">
+                <%= f.hidden_field :comment_thread_id %>
+            </div>
+            <div class="field">
+                <%= f.hidden_field :parent_id %>
+            </div>
+            <div class="field">
+                <%= f.label 'New Comment' %><br/>
+                <%= f.text_area :body %>
+            </div>
+            <div class="actions">
+                <%= f.submit 'Post' %>
+            </div>
+        <% end %>
+    </div>
+</div>

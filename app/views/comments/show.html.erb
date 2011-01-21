@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Written By:</b>
+  <%= "#{@comment.user.first_name} #{@comment.user.last_name}" %>
+</p>
+
+<p>
+  <b>thread:</b>
+  <%= @comment.comment_thread.title %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= @comment.body %>
+</p>
+
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', comments_path %>

@@ -1,0 +1,72 @@
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">
+
+    // Load the latest 1.* version of JQuery
+    google.load("jquery", "1");
+
+    google.setOnLoadCallback(function() {
+
+        // reply show/hide
+        $("*[class^=reply_button_for_]").click(function(event) {
+            var button = $(this).attr('class');
+            var id = button.split('_').last();
+
+            $("#reply_for_" + id).toggle();
+        });
+
+    });
+
+</script>
+
+<%= render 'nav' %>
+
+<p id="notice"><%= notice %></p>
+
+<div class="thread">
+    <div class="user">
+        <div class="image">
+            <% if @comment_thread.user.image.nil? %>
+                <img src="<%= "/images/User-icon_large.png" %>" height="60" width="60">
+            <% else %>
+                <img src="<%= "/images/#{@comment_thread.user.image}" %>" height="60" width="60">
+            <% end %>
+        </div>
+    </div>
+    <div class="info">
+        <div class="title">
+            <%= @comment_thread.title %>
+        </div>
+        <div class="name">
+            <%= "By #{@comment_thread.user.first_name} #{@comment_thread.user.last_name}" %>
+        </div>
+        <div class="body">
+            <%= @comment_thread.body %>
+        </div>
+    </div>
+</div>
+<div class="comments">
+    <% if @comment_thread.comments_count > 0 %>
+        <h2><%= pluralize(@comment_thread.comments_count, "comment") %></h2>
+    <% end %>
+    <% @comment_thread.comments.each do |comment| %>
+        <%= render comment %>
+    <% end %>
+    <div class="newComment">
+        <%= form_for(@comment_thread.comments.new) do |f| %>
+            <div class="field">
+                <%= f.hidden_field :comment_thread_id %>
+            </div>
+            <div class="field">
+                <% if @comment_thread.comments_count > 0 %>
+                    <%= f.label 'Post your comment' %><br/>
+                <% else %>
+                    <%= f.label 'Be the first to comment' %><br/>
+                <% end %>
+                <%= f.text_area :body %>
+            </div>
+            <div class="actions">
+                <%= f.submit 'Post' %>
+            </div>
+        <% end %>
+    </div>
+</div>

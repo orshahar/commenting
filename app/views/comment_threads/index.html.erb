@@ -1,0 +1,36 @@
+<%= render 'nav' %>
+
+<h1>Threads</h1>
+
+<table>
+    <tr>
+        <th <%= sort_td_class_helper "title" %>>
+            <%= sort_link_helper "Title", "title" %>
+        </th>
+        <th <%= sort_td_class_helper "owner" %>>
+            <%= sort_link_helper "Owner", "owner" %>
+        </th>
+        <th <%= sort_td_class_helper "created_at" %>>
+            <%= sort_link_helper "Date Created", "created_at" %>
+        </th>
+        <th <%= sort_td_class_helper "comments_count" %>>
+            <%= sort_link_helper "Activity", "comments_count" %>
+        </th>
+        <th></th>
+    </tr>
+
+    <% @comment_threads.each do |comment_thread| %>
+        <tr>
+            <td><%= link_to comment_thread.title, comment_thread %></td>
+            <td><%= link_to "#{comment_thread.user.first_name} #{comment_thread.user.last_name}", comment_thread.user %></td>
+            <td><%= comment_thread.created_at.to_s(:long) %></td>
+            <td><%= pluralize(comment_thread.comments_count, 'comment')%>
+            </td>
+            <td class="links">
+                <%= link_to image_tag("/images/Edit-icon_small.png", :border=>0, :alt => "Edit"), edit_comment_thread_path(comment_thread) %>
+                <%= link_to image_tag("/images/Delete-icon_small.png", :border=>0, :alt => "Delete"), comment_thread, :confirm => 'Are you sure?', :method => :delete %>
+            </td>
+        </tr>
+    <% end %>
+</table>
+

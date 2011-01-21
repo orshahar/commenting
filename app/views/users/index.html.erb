@@ -1,0 +1,30 @@
+<%= render 'nav' %>
+
+<h1>Users</h1>
+
+<table>
+    <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>User name</th>
+        <th>Email</th>
+        <th>
+    </tr>
+
+    <% @users.each do |user| %>
+        <tr>
+            <td><%= user.first_name %></td>
+            <td><%= user.last_name %></td>
+            <td><%= user.user_name %></td>
+            <td><%= user.email %></td>
+            <td class="links">
+                <%= link_to image_tag("/images/Edit-icon_small.png", :border=>0, :alt => "Edit"), edit_user_path(user) %>
+                <%= link_to image_tag("/images/Delete-icon_small.png", :border=>0, :alt => "Delete"), user, :confirm => 'Are you sure?', :method => :delete %>
+            </td>
+        </tr>
+    <% end %>
+</table>
+
+<br/>
+
+<%= link_to 'New User', new_user_path %>

@@ -1,0 +1,475 @@
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    background: #eef2dd;
+    color: #666;
+    font: 62.5%/1.5em "Helvetica Neue", Arial, Helvetica, Verdana, sans-serif; /* sets 1em to be 10px in most browsers */
+}
+
+/* end reset */
+
+/* links */
+a {
+    color: #006;
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+a:visited {
+    color: #006;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #02B;
+    text-decoration: none;
+}
+
+a img {
+    border: 0;
+}
+
+/* end links */
+
+/* headers */
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.5em;
+    margin: 0 0 1em;
+    text-shadow: -.1em .1em .1em #999;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.25em;
+}
+
+h4, h5, h6 {
+    font-size: 1.1em;
+}
+
+/* end headers */
+
+/* phrase elements */
+p, dt, dd, address, th, td, li, pre, code, a {
+    font: 1.4em/1.5em "Helvetica Neue", Arial, Helvetica, Verdana, sans-serif;
+    margin: 0 0 1em;
+}
+
+p *, dt *, dd *, address *, th *, td *, li *, pre *, code *, a * {
+    font-size: 1em;
+}
+
+a {
+    margin: 0;
+}
+
+em {
+
+}
+
+strong {
+
+}
+
+abbr, acronym {
+    border-bottom: .1em dashed;
+}
+
+address {
+    font-style: italic;
+}
+
+pre, code {
+    display: block;
+    font-family: courier, monospace;
+    margin: 0 0 1em;
+}
+
+blockquote, cite {
+    font-style: italic;
+    margin: 2em;
+}
+
+blockquote *, cite * {
+    font-style: italic;
+}
+
+/* end phrase elements */
+
+/* lists */
+ol, ul {
+    margin: 1em 0 1em 1em;
+}
+
+li ul, li ol {
+    margin: .5em 0 .5em 1em;
+}
+
+ol {
+
+}
+
+ol li {
+    list-style-type: decimal;
+}
+
+li ol li {
+    list-style-type: upper-latin;
+}
+
+li li ol li {
+    list-style-type: lower-latin;
+}
+
+ul {
+
+}
+
+ul li {
+    list-style-type: disc;
+}
+
+li ul li {
+    list-style-type: circle;
+}
+
+li li ul li {
+    list-style-type: square;
+}
+
+li {
+    margin: 0 0 .5em 1em;
+}
+
+dl {
+    margin: 1em 0;
+}
+
+dt {
+    font-weight: bold;
+}
+
+dd {
+    font-style: italic;
+}
+
+/* end lists */
+
+/* forms */
+form {
+    margin: 1em 0;
+}
+
+fieldset {
+    border: .1em solid #ccc;
+    margin: 1em 0;
+    padding: 1em;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+}
+
+legend {
+    font-weight: bold;
+    font-variant: small-caps;
+    font-size: 1.4em;
+    padding: 0 1em;
+}
+
+label {
+    font-size: 1.4em;
+    margin-right: 1em;
+    font-weight: bold;
+}
+
+input, textarea, select {
+    border: .1em solid #ccc;
+    margin-right: 1em;
+}
+
+input, textarea {
+    padding: .25em;
+}
+
+input[type=checkbox] {
+    margin-right: 0.25em;
+}
+
+input.submit {
+    padding: .2em .25em; /* for some reason buttom ends up slightly bigger if not for this */
+    background: #eee;
+    text-align: center;
+    -moz-border-radius: .5em;
+    -webkit-border-radius: .5em;
+    border-radius: .5em;
+    background-image: -moz-linear-gradient(top, #eee, #ccc);
+    background-image: -webkit-gradient(linear, top, bottom, color-stop(0.00, #eee), color-stop(1.00, #ccc));
+}
+
+input.submit:hover {
+    background-image: -moz-linear-gradient(top, #ccc, #eee);
+    background-image: -webkit-gradient(linear, top, bottom, color-stop(0.00, #ccc), color-stop(1.00, #eee));
+}
+
+textarea {
+    display: block;
+}
+
+select {
+
+}
+
+optgroup {
+    margin-left: 1em;
+}
+
+option {
+    padding: .2em;
+}
+
+/* end forms */
+
+/* tables */
+table {
+    border-collapse: collapse;
+    margin: 1em 0;
+    width: 100%;
+    border: .1em solid #ccc;
+}
+
+th, td {
+    margin: 0;
+    padding: .5em;
+    vertical-align: top;
+    font-size: 1.2em;
+}
+
+td.links {
+    text-align: right;
+}
+
+th {
+    text-align: left;
+    font-weight: bold;
+    background: #ccc;
+}
+
+th a {
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background: #eee;
+}
+
+/* end tables */
+
+.clear {
+    clear: both;
+}
+
+/* layout */
+#wrapper {
+    background: #fff;
+    margin: 2em auto;
+    width: 66em;
+    min-height: 40em;
+    border: .1em solid #ccc;
+    padding: 2em;
+    -moz-box-shadow: .5em .5em 1em #777, -.5em .5em 1em #777;
+    -webkit-box-shadow: .5em .5em 1em #777, -.5em .5em 1em #777;
+    box-shadow: .5em .5em 1em #777, -.5em .5em 1em #777;
+    -moz-border-radius: 2em;
+    -webkit-border-radius: 2em;
+    border-radius: 2em;
+}
+
+#header {
+    text-align: right;
+    overflow: auto;
+    padding-bottom: 2em;
+}
+
+/*#header a:first-child {*/
+/*float:left;*/
+/*}*/
+/* end layout */
+
+#nav {
+    float: right;
+}
+
+#nav li {
+    list-style: none outside;
+    float: left;
+}
+
+/* user list styles */
+#bioHeader {
+    width: 40em;
+}
+
+/* end user list styles */
+
+/* pagination */
+ul.pagination {
+    overflow: auto;
+    margin: 0 0 1em;
+    text-align: right;
+}
+
+ul.pagination li {
+    list-style-type: none;
+    margin: 0 .5em 0 0;
+    float: left;
+    color: #006;
+}
+
+ul.pagination li:hover {
+    color: #02B;
+    cursor: pointer;
+}
+
+ul.pagination li.on {
+    font-weight: bold;
+    margin-top: .1em;
+    cursor: auto;
+}
+
+/* end pagination */
+
+.thread {
+    margin: 2em 1em 0em 0em;
+    min-height: 10em;
+    padding: 1em;
+}
+.thread .title {
+    line-height: 1.5em;
+    /*margin: 0 0 1em;*/
+    text-shadow: -.1em .1em .1em #999;
+    font-size: 2em;
+    font-weight: bold;
+    /*margin: 10px 10px 30px 0px;*/
+    /*padding: 0px 0px 10px 0px;*/
+}
+
+.comment {
+    font-size: 1em;
+    background: #ddd;
+    margin: 2em 1em 2em 0em;
+    min-height: 10em;
+    border: .1em solid #ccc;
+    padding: 1em;
+    -moz-box-shadow: .2em .2em 1em #777, -.2em .2em 1em #777;
+    -webkit-box-shadow: .2em .2em 1em #777, -.2em .2em 1em #777;
+    box-shadow: .2em .2em 1em #777, -.2em .2em 1em #777;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    clear: both;
+}
+
+.comment .user, .thread .user {
+    float: left;
+    width: 70px;
+}
+
+.user .image {
+    border: 1px solid #333;
+    margin: 0em 10px 10px 0px;
+    -moz-box-shadow: .2em .2em 1em #777, -.2em .2em 1em #777;
+    -webkit-box-shadow: .2em .2em 1em #777, -.2em .2em 1em #777;
+    box-shadow: .2em .2em 1em #777, -.2em .2em 1em #777;
+    -moz-border-radius: .5em;
+    -webkit-border-radius: .5em;
+    border-radius: .5em;
+}
+
+.comment .user .name {
+    color: #777;
+}
+
+.thread .info .name {
+    color: #555;
+    font-style: italic;
+}
+
+.comment .info, .thread .info {
+/*float: left;*/
+    width: 52em;
+    padding-left: 80px;
+}
+
+.comment .date {
+    font-size: 1em;
+    color: #285;
+}
+
+.comment .body, .thread .body{
+    font-size: 1.3em;
+    color: #333;
+    padding-top: 10px;
+}
+
+.comment .quote {
+    margin: 0.5em 0em 0.5em 0em;
+}
+
+.comment .quoteBody {
+    background-color: #eee;
+    margin: 0em 0em 1em 0em;
+    border: .1em solid #ccc;
+    padding: 1em;
+    -moz-box-shadow: .2em .2em 1em #777, -.2em .2em 1em #777;
+    -webkit-box-shadow: .5em .5em 1em #777, -.5em .5em 1em #777;
+    box-shadow: .5em .5em 1em #777, -.5em .5em 1em #777;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 2em;
+    border-radius: 2em;
+}
+
+.comment .buttons {
+    text-align: right;
+    margin-top: 10px; /*float: right;*/
+/*vertical-align: bottom;*/
+/*clear: both;*/
+}
+
+.comments {
+    clear: both;
+    margin-top: 10px;
+}
+.sortup {
+    background-image: url("/images/arrow_up_blue.png");
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-color: #aaa;
+}
+
+.sortdown {
+    background-image: url("/images/arrow_down_blue.png");
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-color: #aaa;
+}
+
+.newComment {
+
+}
+
+.actions {
+    margin-top: 10px;
+}

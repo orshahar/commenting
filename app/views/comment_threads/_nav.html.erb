@@ -1,0 +1,14 @@
+<div id="header">
+    <!--a href="http://www.helium.com"><img src="/images/helium_logo.gif"/></a> -->
+    <div id="nav">
+        <ul>
+            <li><%= link_to 'Threads', comment_threads_path %></li>
+            <% if @comment_thread.nil? %>
+                <li><%= link_to "New Thread", new_comment_thread_path %></li>
+            <% else %>
+                <li><%= link_to 'Edit Thread', edit_comment_thread_path(@comment_thread) %></li>
+            <% end %>
+            <li><%= link_to 'Users', users_path %></li>
+        </ul>
+    </div>
+</div>
